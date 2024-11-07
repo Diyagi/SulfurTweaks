@@ -16,8 +16,8 @@ namespace SulfurTweaks.Tweaks.CurrencyDisplay;
 [HarmonyPatch]
 public class Patches
 {
-    [HarmonyPrefix]
     [HarmonyPatch(typeof(ResourceDisplayEntry), nameof(ResourceDisplayEntry.SetAmount))]
+    [HarmonyPrefix]
     // Patches methods that updates the Sulfur Text in the UI
     public static bool SetAmount(ResourceDisplayEntry __instance, StoragePlaceType ___storagePlace)
     {
@@ -28,8 +28,8 @@ public class Patches
         return false;
     }
 
-    [HarmonyPrefix]
     [HarmonyPatch(typeof(ResourceDisplay), nameof(ResourceDisplay.OnInventoryOpen))]
+    [HarmonyPrefix]
     // UI updates do not happen unless an change triggers it
     // so we need to force update when inventory opens
     public static void OnInventoryOpen(ResourceDisplay __instance)

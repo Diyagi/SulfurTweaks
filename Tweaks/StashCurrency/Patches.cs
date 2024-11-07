@@ -87,8 +87,8 @@ public class Patches
                     AccessTools.Method(typeof(Patches), nameof(ModifyCoins))))
                 .InstructionEnumeration();
 
-        [HarmonyPrefix]
         [HarmonyPatch(typeof(InventoryItem), "UnitCanAfford")]
+        [HarmonyPrefix]
         static bool UnitCanAfford(Unit unit, int price, ref bool __result)
         {
             bool isPlayerAtChurch = StaticInstance<GameManager>.Instance.IsPlayerAtChurch;
@@ -100,7 +100,7 @@ public class Patches
             return false;
         }
 
-        static bool UnitCanAffordCombined(Unit unit, int price)
+        internal static bool UnitCanAffordCombined(Unit unit, int price)
         {
             AttributeManager attributeManager = StaticInstance<AttributeManager>.Instance;
             WorldResource sulfurResource = attributeManager.GetWorldResource(WorldResources.Resource_SulfCoin);
@@ -112,7 +112,7 @@ public class Patches
         }
     }
 
-    private static void ModifyCoins(EntityStats instance, int amount)
+    internal static void ModifyCoins(EntityStats instance, int amount)
     {
         if (instance.GetCoinResource() == null)
         {

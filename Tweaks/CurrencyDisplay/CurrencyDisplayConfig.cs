@@ -14,6 +14,6 @@ public class CurrencyDisplayConfig : ITweakConfig
         Enabled = SulfurPlugin.ConfigFile.Bind(CurrencyDisplay.TweakName,
             "Enabled",
             true,
-            "Enabled/Disable showing the amount of Sulfur in stash on inventory");
+            "Enabled/Disable repair all feature.");
     }
 }

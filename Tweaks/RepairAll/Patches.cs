@@ -138,7 +138,6 @@ public class Patches
 
     private static void UpdateRepairAllCombination()
     {
-        SulfurPlugin.Logger.LogInfo("Updating Repair All Combination");
         InventoryUI inventoryUI = StaticInstance<UIManager>.Instance.InventoryUI;
 
         List<InventoryItem> list = inventoryUI.PlayerBackpackGrid.AllItems();

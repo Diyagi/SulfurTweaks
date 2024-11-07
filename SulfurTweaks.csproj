@@ -30,21 +30,25 @@
   <ItemGroup>
     <Reference Include="PerfectRandom.Sulfur.Core">
       <HintPath>..\Sulfur-libs\PerfectRandom.Sulfur.Core.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="PerfectRandom.Sulfur.Gameplay">
       <HintPath>..\Sulfur-libs\PerfectRandom.Sulfur.Gameplay.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
       <HintPath>..\Sulfur-libs\Unity.TextMeshPro.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.UI">
       <HintPath>..\Sulfur-libs\UnityEngine.UI.dll</HintPath>
+      <Private>False</Private>
     </Reference>
   </ItemGroup>
 
   <Import Project=".targets\GeneratePluginInfo.targets" />
 
-  <Target Name="CopyDllToModsFolder" AfterTargets="Build">
-    <Exec Command='xcopy /y /d "$(TargetDir)$(AssemblyName).dll" "C:\Program Files (x86)\Steam\steamapps\common\SULFUR\BepInEx\plugins"' />
-  </Target>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <OutDir>C:\Program Files (x86)\Steam\steamapps\common\SULFUR\BepInExDev\plugins\SimpleTweaks</OutDir>
+  </PropertyGroup>
 </Project>
